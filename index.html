@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер: Вклад "Богатырская ставка"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                        accent: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<div class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-wrap justify-center gap-4">
+                 <a href="index.html" class="bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300">
+                    Богатырская
+                </a>
+                <a href="sila.html" class="bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300">
+                    Сильная ставка
+                </a>
+                <a href="dohod.html" class="bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300">
+                    Мой доход
+                </a>
+                
+            </div>
+        </div>
+    </div>
+<body class="bg-gray-50">
+    <!-- Навигация -->
+    <nav class="bg-blue-800 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold mb-4 md:mb-0">Тренажер "Богатырская ставка"</h1>
+            <div class="flex space-x-4">
+                <a href="#about" class="hover:text-blue-200 transition">О продукте</a>
+                <a href="#calculator" class="hover:text-blue-200 transition">Калькулятор</a>
+                <a href="#sales" class="hover:text-blue-200 transition">Продажи</a>
+                <a href="#presentation" class="hover:text-blue-200 transition">Презентация</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Вклад "Богатырская ставка"</h2>
+            <p class="text-xl mb-8">Высокодоходный вклад для новых клиентов с исключительными условиями</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <i class="fas fa-percentage text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">33% годовых</h3>
+                    <p>Высокая ставка на короткий срок</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <i class="fas fa-user-plus text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Только для новых</h3>
+                    <p>Клиенты без вкладов за последние 180 дней</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <i class="fas fa-chart-line text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">До 50 000 ₽</h3>
+                    <p>Максимальная сумма вклада</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О продукте -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">О продукте "Богатырская ставка"</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Основная информация -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Основные условия</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span><strong>Ставка:</strong> 33% годовых для сроков 91 и 181 день</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span><strong>Только для новых клиентов:</strong> без действующих вкладов и накопительных счетов в течение 180 дней</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span><strong>Максимальная сумма:</strong> 50 000 рублей</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-red-500 mt-1 mr-2"></i>
+                            <span><strong>Нельзя пополнять</strong> и снимать средства до окончания срока</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Кто может открыть -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Кто может открыть вклад</h3>
+                    <p class="mb-4">Вклад доступен только для клиентов, которые:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-user-plus text-blue-500 mt-1 mr-2"></i>
+                            <span>Не имели действующих срочных вкладов или накопительных счетов в течение 180 дней до открытия</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-calendar-times text-blue-500 mt-1 mr-2"></i>
+                            <span>За исключением 6 календарных дней перед открытием вклада</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-ban text-blue-500 mt-1 mr-2"></i>
+                            <span>Не закрывали вклады в день открытия "Богатырской ставки" и в течение 180 дней до этого</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- График сравнения доходности -->
+            <div class="mt-12 bg-gray-50 p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">Сравнение доходности</h3>
+                <div class="h-64">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Калькулятор -->
+    <section id="calculator" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Калькулятор доходности</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Параметры вклада -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-700">Параметры вклада</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="amount">Сумма вклада (руб.)</label>
+                        <div class="flex items-center">
+                            <input type="range" id="amount" min="1000" max="50000" step="1000" value="30000" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer">
+                            <span id="amountValue" class="ml-4 font-bold text-blue-700">30 000 ₽</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mt-1">
+                            <span>1 000 ₽</span>
+                            <span>50 000 ₽</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Срок вклада</label>
+                        <div class="flex space-x-4">
+                            <button id="term91" class="term-btn bg-blue-700 text-white px-4 py-2 rounded-lg flex-1 transition hover:bg-blue-800">91 день</button>
+                            <button id="term181" class="term-btn bg-blue-200 text-blue-800 px-4 py-2 rounded-lg flex-1 transition hover:bg-blue-300">181 день</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-100 p-4 rounded-lg mt-6">
+                        <h4 class="font-bold text-blue-800 mb-2">Результат расчета</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm text-gray-600">Начальная сумма</p>
+                                <p id="initialAmount" class="font-bold text-lg">30 000 ₽</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Доход</p>
+                                <p id="income" class="font-bold text-lg text-green-600">2 460 ₽</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Итоговая сумма</p>
+                                <p id="finalAmount" class="font-bold text-lg">32 460 ₽</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Эффективная ставка</p>
+                                <p id="effectiveRate" class="font-bold text-lg">33%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- График роста вклада -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-700">Динамика роста вклада</h3>
+                    <div class="h-64">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">* Расчеты приведены для ознакомления. Точные условия уточняйте у менеджера.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Рекомендации по продажам -->
+    <section id="sales" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Рекомендации по продажам</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Карточка 1 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-bullseye text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-700">Целевая аудитория</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Новые клиенты банка</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Клиенты, у которых не было вкладов более 6 месяцев</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Люди с небольшой суммой для инвестирования (до 50 000 ₽)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Карточка 2 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-700">Ключевые преимущества</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                            <span>Одна из самых высоких ставок на рынке - 33%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                            <span>Короткий срок - возможность быстро получить доход</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                            <span>Минимальные риски - банковские вклады застрахованы</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Карточка 3 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-comments text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-700">Аргументы для клиента</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-comment-dots text-blue-500 mt-1 mr-2"></i>
+                            <span>"Это специальное предложение для новых клиентов с ограниченным сроком действия"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-comment-dots text-blue-500 mt-1 mr-2"></i>
+                            <span>"Всего за 3 или 6 месяцев ваши сбережения вырастут на X%"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-comment-dots text-blue-500 mt-1 mr-2"></i>
+                            <span>"Максимальная сумма ограничена, поэтому предложение эксклюзивное"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Таблица сравнения -->
+            <div class="mt-12 bg-gray-50 p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-6 text-blue-700">Сравнение с другими вкладами</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead class="bg-blue-700 text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Параметр</th>
+                                <th class="py-3 px-4 text-left">Богатырская ставка</th>
+                                <th class="py-3 px-4 text-left">Стандартный вклад</th>
+                                <th class="py-3 px-4 text-left">Накопительный счет</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Ставка</td>
+                                <td class="py-3 px-4 text-green-600 font-bold">33%</td>
+                                <td class="py-3 px-4">5-7%</td>
+                                <td class="py-3 px-4">3-5%</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4 font-medium">Срок</td>
+                                <td class="py-3 px-4">91 или 181 день</td>
+                                <td class="py-3 px-4">От 1 месяца</td>
+                                <td class="py-3 px-4">Без срока</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Макс. сумма</td>
+                                <td class="py-3 px-4">50 000 ₽</td>
+                                <td class="py-3 px-4">Не ограничена</td>
+                                <td class="py-3 px-4">Не ограничена</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4 font-medium">Пополнение</td>
+                                <td class="py-3 px-4 text-red-500">Нет</td>
+                                <td class="py-3 px-4 text-green-500">Да</td>
+                                <td class="py-3 px-4 text-green-500">Да</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Снятие</td>
+                                <td class="py-3 px-4 text-red-500">Нет</td>
+                                <td class="py-3 px-4">С потерей %</td>
+                                <td class="py-3 px-4 text-green-500">Да</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Советы по презентации -->
+    <section id="presentation" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Как презентовать продукт клиенту</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Шаги презентации -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-700">План презентации</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold">1</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg text-blue-800">Определение потребности</h4>
+                                <p class="text-gray-700 mt-1">Выясните, есть ли у клиента свободные средства и интерес к краткосрочным вложениям.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold">2</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg text-blue-800">Проверка соответствия</h4>
+                                <p class="text-gray-700 mt-1">Убедитесь, что клиент подходит под условия (новый, без вкладов последние 180 дней).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold">3</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg text-blue-800">Демонстрация выгоды</h4>
+                                <p class="text-gray-700 mt-1">Покажите на калькуляторе, какой доход получит клиент за короткий срок.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold">4</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg text-blue-800">Подчеркните эксклюзивность</h4>
+                                <p class="text-gray-700 mt-1">Объясните, что предложение ограничено по сумме и доступно только новым клиентам.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold">5</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg text-blue-800">Закрытие сделки</h4>
+                                <p class="text-gray-700 mt-1">Помогите клиенту заполнить заявку и ответьте на все вопросы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Частые возражения -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-700">Работа с возражениями</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold text-lg text-blue-800">"Сумма слишком маленькая"</h4>
+                            <p class="text-gray-700 mt-1">Ответ: "Именно поэтому ставка такая высокая! Это специальное предложение для знакомства с нашим банком."</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold text-lg text-blue-800">"Не хочу надолго замораживать деньги"</h4>
+                            <p class="text-gray-700 mt-1">Ответ: "Всего 3 или 6 месяцев - это очень короткий срок для такой доходности. Вы быстро получите прибыль."</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold text-lg text-blue-800">"У меня уже есть вклад в другом банке"</h4>
+                            <p class="text-gray-700 mt-1">Ответ: "Сравните доходность! Наша ставка 33% значительно выше среднерыночной. Это отличная возможность диверсифицировать сбережения."</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold text-lg text-blue-800">"Я новый клиент, но у меня был вклад полгода назад"</h4>
+                            <p class="text-gray-700 mt-1">Ответ: "Проверим точно по нашей системе. Если с момента закрытия последнего вклада прошло более 180 дней (исключая 6 дней до открытия), вы можете оформить "Богатырскую ставку"."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Чек-лист -->
+            <div class="mt-12 bg-white p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-6 text-blue-700">Чек-лист менеджера</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-blue-800">Перед презентацией</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Проверить актуальность условий вклада</span>
+                            </li>
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Подготовить примеры расчетов для разных сумм</span>
+                            </li>
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Изучить историю клиента (если доступна)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-blue-800">Во время презентации</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Четко объяснить условия и ограничения</span>
+                            </li>
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Показать выгоду на калькуляторе</span>
+                            </li>
+                            <li class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-2 h-5 w-5 text-blue-600 rounded">
+                                <span>Ответить на все вопросы клиента</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">Тренажер по продукту "Богатырская ставка" для менеджеров по продажам</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Инициализация графиков и калькулятора
+        document.addEventListener('DOMContentLoaded', function() {
+            // Элементы управления
+            const amountSlider = document.getElementById('amount');
+            const amountValue = document.getElementById('amountValue');
+            const term91Btn = document.getElementById('term91');
+            const term181Btn = document.getElementById('term181');
+            const initialAmountEl = document.getElementById('initialAmount');
+            const incomeEl = document.getElementById('income');
+            const finalAmountEl = document.getElementById('finalAmount');
+            const effectiveRateEl = document.getElementById('effectiveRate');
+            
+            // Параметры вклада
+            let currentAmount = 30000;
+            let currentTerm = 91; // дней
+            const rate = 33; // годовых
+            
+            // Обновление значения суммы
+            amountSlider.addEventListener('input', function() {
+                currentAmount = parseInt(this.value);
+                amountValue.textContent = formatCurrency(currentAmount);
+                updateCalculation();
+                updateGrowthChart();
+            });
+            
+            // Выбор срока
+            term91Btn.addEventListener('click', function() {
+                currentTerm = 91;
+                updateTermButtons();
+                updateCalculation();
+                updateGrowthChart();
+            });
+            
+            term181Btn.addEventListener('click', function() {
+                currentTerm = 181;
+                updateTermButtons();
+                updateCalculation();
+                updateGrowthChart();
+            });
+            
+            // Функция обновления кнопок срока
+            function updateTermButtons() {
+                if (currentTerm === 91) {
+                    term91Btn.classList.remove('bg-blue-200', 'text-blue-800');
+                    term91Btn.classList.add('bg-blue-700', 'text-white');
+                    term181Btn.classList.remove('bg-blue-700', 'text-white');
+                    term181Btn.classList.add('bg-blue-200', 'text-blue-800');
+                } else {
+                    term181Btn.classList.remove('bg-blue-200', 'text-blue-800');
+                    term181Btn.classList.add('bg-blue-700', 'text-white');
+                    term91Btn.classList.remove('bg-blue-700', 'text-white');
+                    term91Btn.classList.add('bg-blue-200', 'text-blue-800');
+                }
+            }
+            
+            // Функция форматирования валюты
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('ru-RU').format(amount) + ' ₽';
+            }
+            
+            // Функция расчета дохода
+            function calculateIncome(amount, term, rate) {
+                return Math.round(amount * rate * term / 36500);
+            }
+            
+            // Функция обновления расчетов
+            function updateCalculation() {
+                const income = calculateIncome(currentAmount, currentTerm, rate);
+                const finalAmount = currentAmount + income;
+                
+                initialAmountEl.textContent = formatCurrency(currentAmount);
+                incomeEl.textContent = formatCurrency(income);
+                finalAmountEl.textContent = formatCurrency(finalAmount);
+                effectiveRateEl.textContent = rate + '%';
+            }
+            
+            // Инициализация графика сравнения
+            const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+            const comparisonChart = new Chart(comparisonCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Богатырская ставка', 'Стандартный вклад', 'Накопительный счет'],
+                    datasets: [{
+                        label: 'Доходность за 6 месяцев (%)',
+                        data: [16.5, 3.5, 2.5],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Доходность (%)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Инициализация графика роста вклада
+            const growthCtx = document.getElementById('growthChart').getContext('2d');
+            let growthChart = new Chart(growthCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Сумма на вкладе',
+                        data: [],
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Сумма (руб.)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Дни'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Функция обновления графика роста
+            function updateGrowthChart() {
+                const days = currentTerm;
+                const step = Math.max(1, Math.floor(days / 10));
+                const labels = [];
+                const data = [];
+                
+                for (let day = 0; day <= days; day += step) {
+                    labels.push(`День ${day}`);
+                    const income = calculateIncome(currentAmount, day, rate);
+                    data.push(currentAmount + income);
+                }
+                
+                // Добавляем последний день, если не попал в шаг
+                if (days % step !== 0) {
+                    labels.push(`День ${days}`);
+                    const income = calculateIncome(currentAmount, days, rate);
+                    data.push(currentAmount + income);
+                }
+                
+                growthChart.data.labels = labels;
+                growthChart.data.datasets[0].data = data;
+                growthChart.update();
+            }
+            
+            // Инициализация
+            updateTermButtons();
+            updateCalculation();
+            updateGrowthChart();
+        });
+    </script>
+</body>
+</html>
