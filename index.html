@@ -30,6 +30,141 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Мобильные стили */
+        @media (max-width: 768px) {
+            .mobile-card {
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                margin-bottom: 16px;
+                overflow: hidden;
+            }
+            
+            .mobile-section {
+                padding: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .mobile-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+                padding: 8px 0;
+            }
+            
+            .mobile-nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 8px;
+                font-size: 12px;
+                color: #666;
+                flex: 1;
+            }
+            
+            .mobile-nav-item.active {
+                color: #3b82f6;
+            }
+            
+            .mobile-nav-icon {
+                width: 24px;
+                height: 24px;
+                margin-bottom: 4px;
+            }
+            
+            .mobile-slider {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 8px;
+                border-radius: 4px;
+                background: #e5e7eb;
+                outline: none;
+            }
+            
+            .mobile-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: #3b82f6;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-header {
+                padding: 16px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 0 0 16px 16px;
+                margin-bottom: 16px;
+            }
+            
+            .mobile-tab {
+                display: none;
+            }
+            
+            .mobile-tab.active {
+                display: block;
+            }
+            
+            .mobile-btn {
+                display: block;
+                width: 100%;
+                padding: 14px;
+                text-align: center;
+                background: #3b82f6;
+                color: white;
+                border-radius: 8px;
+                font-weight: 600;
+                margin-top: 16px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-input-group {
+                margin-bottom: 20px;
+            }
+            
+            .mobile-input-label {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+            
+            .mobile-value {
+                font-weight: 600;
+                color: #3b82f6;
+            }
+            
+            .mobile-result-card {
+                background: white;
+                border-radius: 12px;
+                padding: 16px;
+                margin-bottom: 16px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            }
+            
+            .mobile-result-title {
+                font-size: 14px;
+                color: #666;
+                margin-bottom: 4px;
+            }
+            
+            .mobile-result-value {
+                font-size: 20px;
+                font-weight: 700;
+            }
+            
+            .mobile-chart-container {
+                height: 200px;
+                margin: 20px 0;
+            }
+        }
     </style>
 </head>
 <div class="bg-white shadow-sm border-b">
@@ -49,16 +184,50 @@
         </div>
     </div>
 <body class="bg-gray-50">
-    <!-- Шапка -->
-    <header class="gradient-bg text-white">
+    <!-- Мобильный заголовок -->
+    <div class="md:hidden mobile-header">
+        <h1 class="text-xl font-bold mb-1">Программа долгосрочных сбережений</h1>
+        <p class="text-sm opacity-90">Формируйте капитал комфортными взносами</p>
+    </div>
+
+    <!-- Десктопная навигация -->
+    
+
+    <!-- Мобильная навигация -->
+    <nav class="md:hidden mobile-nav">
+        <div class="flex justify-around">
+            <a href="#calculator" class="mobile-nav-item active" data-tab="calculator">
+                <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                <span>Калькулятор</span>
+            </a>
+            <a href="#about" class="mobile-nav-item" data-tab="about">
+                <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>О программе</span>
+            </a>
+            <a href="#parameters" class="mobile-nav-item" data-tab="parameters">
+                <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span>Параметры</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Десктопная шапка -->
+    <header class="hidden md:block gradient-bg text-white">
         <div class="container mx-auto px-4 py-8">
             <h1 class="text-3xl md:text-4xl font-bold mb-2">Программа долгосрочных сбережений</h1>
             <p class="text-xl opacity-90">Формируйте капитал комфортными взносами с государственной поддержкой</p>
         </div>
     </header>
 
-    <!-- Навигация -->
-    <nav class="bg-white shadow-sm sticky top-0 z-10">
+    <!-- Десктопная навигация -->
+    <nav class="hidden md:block bg-white shadow-sm sticky top-0 z-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center py-4">
                 <div class="flex space-x-6 mb-4 md:mb-0">
@@ -67,351 +236,555 @@
                     <a href="#parameters" class="text-gray-700 hover:text-purple-600 font-medium">Параметры</a>
                     <a href="#how-it-works" class="text-gray-700 hover:text-purple-600 font-medium">Как работает</a>
                 </div>
-               
             </div>
         </div>
     </nav>
 
     <!-- Основной контент -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- Секция "Для кого" -->
-        <section id="about" class="mb-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Для кого эта программа</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Карточка для молодежи -->
-                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-                    <div class="text-purple-500 text-lg font-semibold mb-4">Для молодежи</div>
-                    <p class="text-gray-700">Личный капитал на желания и реализацию планов</p>
+    <main class="container mx-auto px-4 py-4 md:py-8">
+        <!-- Мобильный калькулятор -->
+        <section id="calculator" class="mobile-tab active md:hidden mobile-section">
+            <div class="mobile-card bg-white p-4">
+                <h2 class="text-lg font-bold mb-4">Калькулятор сбережений</h2>
+                
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Пол</span>
+                    </div>
+                    <div class="flex space-x-2 mb-2">
+                        <button id="mobile-gender-male" class="gender-btn flex-1 py-3 border border-gray-300 rounded-lg bg-blue-600 text-white" data-gender="male">Мужчина</button>
+                        <button id="mobile-gender-female" class="gender-btn flex-1 py-3 border border-gray-300 rounded-lg" data-gender="female">Женщина</button>
+                    </div>
                 </div>
                 
-                <!-- Карточка для взрослых -->
-                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-                    <div class="text-purple-500 text-lg font-semibold mb-4">Для взрослых</div>
-                    <p class="text-gray-700">Дополнительный доход для крупных покупок и заботы о семье</p>
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Возраст</span>
+                        <span id="mobile-age-value" class="mobile-value">40 лет</span>
+                    </div>
+                    <input type="range" id="mobile-age" min="18" max="70" value="40" class="mobile-slider">
                 </div>
                 
-                <!-- Карточка для старшего поколения -->
-                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-                    <div class="text-purple-500 text-lg font-semibold mb-4">Для старшего поколения</div>
-                    <p class="text-gray-700">Прибавка к пенсии, выплаты на 5 лет раньше общеустановленного пенсионного возраста</p>
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Ежемесячный доход</span>
+                        <span id="mobile-income-value" class="mobile-value">80 000 ₽</span>
+                    </div>
+                    <input type="range" id="mobile-income" min="30000" max="300000" step="10000" value="80000" class="mobile-slider">
                 </div>
+                
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Первый взнос</span>
+                        <span id="mobile-first-payment-value" class="mobile-value">30 000 ₽</span>
+                    </div>
+                    <input type="range" id="mobile-first-payment" min="30000" max="500000" step="10000" value="30000" class="mobile-slider">
+                </div>
+                
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Дополнительные взносы в месяц</span>
+                        <span id="mobile-monthly-payment-value" class="mobile-value">3 000 ₽</span>
+                    </div>
+                    <input type="range" id="mobile-monthly-payment" min="0" max="50000" step="1000" value="3000" class="mobile-slider">
+                </div>
+                
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Период накопления</span>
+                        <span id="mobile-saving-period-value" class="mobile-value">15 лет</span>
+                    </div>
+                    <input type="range" id="mobile-saving-period" min="1" max="30" value="15" class="mobile-slider">
+                </div>
+                
+                <div class="mobile-input-group">
+                    <div class="mobile-input-label">
+                        <span>Расчетная ставка</span>
+                        <span id="mobile-investment-rate-value" class="mobile-value">19.3%</span>
+                    </div>
+                    <input type="range" id="mobile-investment-rate" min="5" max="25" step="0.1" value="19.3" class="mobile-slider">
+                </div>
+                
+                <button class="mobile-btn" id="mobile-calculate-btn">Рассчитать</button>
             </div>
-
-            <!-- Подсекция "Не имеет накоплений" и "Имеет накопления" -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-purple-600">Не имеет накоплений</h3>
-                    <p class="text-gray-700 mb-4">Возможность формирования целевого капитала комфортными взносами:</p>
-                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                        <li>Минимальные взносы по силам многим клиентам</li>
-                        <li>Хочет сформировать дисциплину накоплений</li>
-                        <li>Хочет иметь подушку безопасности на непредвиденный случай</li>
-                        <li>Хочет накопить к событию</li>
-                    </ul>
+            
+            <div class="mobile-card bg-white p-4">
+                <h3 class="text-lg font-bold mb-4">Результаты расчета</h3>
+                
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <div class="mobile-result-card">
+                        <div class="mobile-result-title">Личные взносы</div>
+                        <div class="mobile-result-value" id="mobile-personal-contributions">567 000 ₽</div>
+                    </div>
+                    <div class="mobile-result-card">
+                        <div class="mobile-result-title">Софинансирование</div>
+                        <div class="mobile-result-value" id="mobile-state-contributions">360 000 ₽</div>
+                    </div>
+                    <div class="mobile-result-card">
+                        <div class="mobile-result-title">Инвестиционный доход</div>
+                        <div class="mobile-result-value" id="mobile-investment-income">4 444 243 ₽</div>
+                    </div>
+                    <div class="mobile-result-card">
+                        <div class="mobile-result-title">Налоговый вычет</div>
+                        <div class="mobile-result-value" id="mobile-tax-deduction">73 710 ₽</div>
+                    </div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-purple-600">Имеет накопления</h3>
-                    <p class="text-gray-700 mb-4">Возможность увеличения капитала, благодаря софинансированию от государства и начислению инвестиционного дохода:</p>
-                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                        <li>Хочет защитить свой личный фонд от имущественных споров и притязаний</li>
-                        <li>Хочет диверсифицировать свой портфель с помощью разных инструментов</li>
-                        <li>Хочет иметь надежный инструмент с гарантией возвратности средств</li>
-                    </ul>
+                <div class="mobile-chart-container">
+                    <canvas id="mobile-distribution-chart"></canvas>
+                </div>
+                
+                <div class="mobile-chart-container">
+                    <canvas id="mobile-growth-chart"></canvas>
                 </div>
             </div>
         </section>
 
-        <!-- Калькулятор -->
-        <section id="calculator" class="mb-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Калькулятор сбережений</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Панель ввода данных -->
-                <div class="lg:col-span-1 bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-6 text-purple-600">Параметры расчета</h3>
+        <!-- Мобильная информация о программе -->
+        <section id="about" class="mobile-tab md:hidden mobile-section">
+            <div class="mobile-card bg-white p-4">
+                <h2 class="text-lg font-bold mb-4">О программе</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h3 class="font-semibold text-purple-700 mb-2">Для молодежи</h3>
+                        <p class="text-sm">Личный капитал на желания и реализацию планов</p>
+                    </div>
                     
-                    <div class="space-y-6">
-                        <!-- Пол и возраст -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Пол и возраст</label>
-                            <div class="flex space-x-4 mb-2">
-                                <button id="gender-male" class="gender-btn flex-1 py-2 px-4 border border-gray-300 rounded-lg" data-gender="male">Мужчина</button>
-                                <button id="gender-female" class="gender-btn flex-1 py-2 px-4 border border-gray-300 rounded-lg" data-gender="female">Женщина</button>
-                            </div>
-                            <input type="range" id="age" min="18" max="70" value="40" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>18 лет</span>
-                                <span id="age-value">40 лет</span>
-                                <span>70 лет</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Доход -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Ежемесячный доход</label>
-                            <input type="range" id="income" min="30000" max="300000" step="10000" value="80000" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>30 000 ₽</span>
-                                <span id="income-value">80 000 ₽</span>
-                                <span>300 000 ₽</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Взносы -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Первый взнос</label>
-                            <input type="range" id="first-payment" min="30000" max="500000" step="10000" value="30000" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>30 000 ₽</span>
-                                <span id="first-payment-value">30 000 ₽</span>
-                                <span>500 000 ₽</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Дополнительные взносы -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Дополнительные взносы в месяц</label>
-                            <input type="range" id="monthly-payment" min="0" max="50000" step="1000" value="3000" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>0 ₽</span>
-                                <span id="monthly-payment-value">3 000 ₽</span>
-                                <span>50 000 ₽</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Период накопления -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Период накопления (лет)</label>
-                            <input type="range" id="saving-period" min="1" max="30" value="15" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>1 год</span>
-                                <span id="saving-period-value">15 лет</span>
-                                <span>30 лет</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Инвестиционная ставка -->
-                        <div>
-                            <label class="block text-gray-700 mb-2">Расчетная ставка инвестиционного дохода</label>
-                            <input type="range" id="investment-rate" min="5" max="25" step="0.1" value="19.3" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-600 mt-1">
-                                <span>5%</span>
-                                <span id="investment-rate-value">19.3%</span>
-                                <span>25%</span>
-                            </div>
-                        </div>
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h3 class="font-semibold text-purple-700 mb-2">Для взрослых</h3>
+                        <p class="text-sm">Дополнительный доход для крупных покупок и заботы о семье</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h3 class="font-semibold text-purple-700 mb-2">Для старшего поколения</h3>
+                        <p class="text-sm">Прибавка к пенсии, выплаты на 5 лет раньше общеустановленного пенсионного возраста</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mobile-card bg-white p-4">
+                <h3 class="font-semibold mb-3 text-purple-600">Не имеет накоплений</h3>
+                <p class="text-sm text-gray-700 mb-3">Возможность формирования целевого капитала комфортными взносами:</p>
+                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                    <li>Минимальные взносы по силам многим клиентам</li>
+                    <li>Хочет сформировать дисциплину накоплений</li>
+                    <li>Хочет иметь подушку безопасности на непредвиденный случай</li>
+                    <li>Хочет накопить к событию</li>
+                </ul>
+            </div>
+            
+            <div class="mobile-card bg-white p-4">
+                <h3 class="font-semibold mb-3 text-purple-600">Имеет накопления</h3>
+                <p class="text-sm text-gray-700 mb-3">Возможность увеличения капитала, благодаря софинансированию от государства и начислению инвестиционного дохода:</p>
+                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                    <li>Хочет защитить свой личный фонд от имущественных споров и притязаний</li>
+                    <li>Хочет диверсифицировать свой портфель с помощью разных инструментов</li>
+                    <li>Хочет иметь надежный инструмент с гарантией возвратности средств</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Мобильные параметры -->
+        <section id="parameters" class="mobile-tab md:hidden mobile-section">
+            <div class="mobile-card bg-white p-4">
+                <h2 class="text-lg font-bold mb-4">Параметры программы</h2>
                 
-                <!-- Результаты и графики -->
-                <div class="lg:col-span-2">
-                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-6 text-purple-600">Результаты расчета</h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <div class="bg-purple-50 rounded-lg p-4">
-                                <div class="text-sm text-purple-600">Личные взносы</div>
-                                <div class="text-2xl font-bold" id="personal-contributions">567 000 ₽</div>
-                            </div>
-                            <div class="bg-green-50 rounded-lg p-4">
-                                <div class="text-sm text-green-600">Софинансирование</div>
-                                <div class="text-2xl font-bold" id="state-contributions">360 000 ₽</div>
-                            </div>
-                            <div class="bg-blue-50 rounded-lg p-4">
-                                <div class="text-sm text-blue-600">Инвестиционный доход</div>
-                                <div class="text-2xl font-bold" id="investment-income">4 444 243 ₽</div>
-                            </div>
-                            <div class="bg-yellow-50 rounded-lg p-4">
-                                <div class="text-sm text-yellow-600">Налоговый вычет</div>
-                                <div class="text-2xl font-bold" id="tax-deduction">73 710 ₽</div>
-                            </div>
-                        </div>
-                        
-                        <!-- График распределения -->
-                        <div class="mb-8">
-                            <h4 class="text-lg font-semibold mb-4">Структура накоплений</h4>
-                            <div class="h-64">
-                                <canvas id="distribution-chart"></canvas>
-                            </div>
-                        </div>
-                        
-                        <!-- График роста по годам -->
-                        <div>
-                            <h4 class="text-lg font-semibold mb-4">Рост накоплений по годам</h4>
-                            <div class="h-64">
-                                <canvas id="growth-chart"></canvas>
-                            </div>
-                        </div>
+                <div class="space-y-4">
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Валюта</div>
+                        <div class="font-medium">Рубль</div>
                     </div>
                     
-                    <!-- Пояснения к результатам -->
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Первый взнос</div>
+                        <div class="font-medium">30 000 рублей</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Последующие взносы</div>
+                        <div class="font-medium">От любой суммы, периодичность определяется клиентом</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Максимальная сумма</div>
+                        <div class="font-medium">Не ограничена</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Рекомендуемый срок</div>
+                        <div class="font-medium">15 лет</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Частичный вывод</div>
+                        <div class="font-medium">Возможен при особых жизненных ситуациях</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Возможность досрочного расторжения</div>
+                        <div class="font-medium">Да, с учетом коэффициентов выкупных сумм</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Тип налогового вычета</div>
+                        <div class="font-medium">На долгосрочные сбережения (ст.219.2 НК РФ)</div>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-3">
+                        <div class="text-sm text-gray-600">Комиссии для клиента</div>
+                        <div class="font-medium">Отсутствуют</div>
+                    </div>
+                    
+                    <div>
+                        <div class="text-sm text-gray-600">Период охлаждения</div>
+                        <div class="font-medium">14 календарных дней</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Десктопная версия -->
+        <div class="hidden md:block">
+            <!-- Секция "Для кого" -->
+            <section id="about" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Для кого эта программа</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Карточка для молодежи -->
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="text-purple-500 text-lg font-semibold mb-4">Для молодежи</div>
+                        <p class="text-gray-700">Личный капитал на желания и реализацию планов</p>
+                    </div>
+                    
+                    <!-- Карточка для взрослых -->
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="text-purple-500 text-lg font-semibold mb-4">Для взрослых</div>
+                        <p class="text-gray-700">Дополнительный доход для крупных покупок и заботы о семье</p>
+                    </div>
+                    
+                    <!-- Карточка для старшего поколения -->
+                    <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                        <div class="text-purple-500 text-lg font-semibold mb-4">Для старшего поколения</div>
+                        <p class="text-gray-700">Прибавка к пенсии, выплаты на 5 лет раньше общеустановленного пенсионного возраста</p>
+                    </div>
+                </div>
+
+                <!-- Подсекция "Не имеет накоплений" и "Имеет накопления" -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                     <div class="bg-white rounded-xl shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4 text-purple-600">Что вы получаете</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Государственное софинансирование</p>
-                                    <p class="text-gray-600 text-sm">Ежегодно государство добавляет средства к вашим накоплениям</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Инвестиционный доход</p>
-                                    <p class="text-gray-600 text-sm">Ваши средства работают и приносят дополнительный доход</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Налоговый вычет</p>
-                                    <p class="text-gray-600 text-sm">Возврат 13% от суммы взносов в пределах 400 тыс. руб. в год</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Параметры программы -->
-        <section id="parameters" class="mb-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Параметры программы</h2>
-            
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-6 border-b md:border-b-0 md:border-r border-gray-200">
-                        <h3 class="text-xl font-semibold mb-4 text-purple-600">Основные условия</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Валюта</span>
-                                <span class="font-medium">Рубль</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Первый взнос</span>
-                                <span class="font-medium">30 000 рублей</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Последующие взносы</span>
-                                <span class="font-medium">От любой суммы, периодичность определяется клиентом</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Максимальная сумма</span>
-                                <span class="font-medium">Не ограничена</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Рекомендуемый срок</span>
-                                <span class="font-medium">15 лет</span>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-purple-600">Не имеет накоплений</h3>
+                        <p class="text-gray-700 mb-4">Возможность формирования целевого капитала комфортными взносами:</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Минимальные взносы по силам многим клиентам</li>
+                            <li>Хочет сформировать дисциплину накоплений</li>
+                            <li>Хочет иметь подушку безопасности на непредвиденный случай</li>
+                            <li>Хочет накопить к событию</li>
+                        </ul>
                     </div>
                     
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-4 text-purple-600">Дополнительные условия</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Частичный вывод</span>
-                                <span class="font-medium">Возможен при особых жизненных ситуациях</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Возможность досрочного расторжения</span>
-                                <span class="font-medium">Да, с учетом коэффициентов выкупных сумм</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Тип налогового вычета</span>
-                                <span class="font-medium">На долгосрочные сбережения (ст.219.2 НК РФ)</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Комиссии для клиента</span>
-                                <span class="font-medium">Отсутствуют</span>
-                            </div>
-                            <div class="flex justify-between py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Период охлаждения</span>
-                                <span class="font-medium">14 календарных дней</span>
-                            </div>
-                        </div>
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-600">Имеет накопления</h3>
+                        <p class="text-gray-700 mb-4">Возможность увеличения капитала, благодаря софинансированию от государства и начислению инвестиционного дохода:</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Хочет защитить свой личный фонд от имущественных споров и притязаний</li>
+                            <li>Хочет диверсифицировать свой портфель с помощью разных инструментов</li>
+                            <li>Хочет иметь надежный инструмент с гарантией возвратности средств</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Как работает программа -->
-        <section id="how-it-works" class="mb-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Как работает программа</h2>
-            
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Процесс накопления -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 text-purple-600">Копим</h3>
+            <!-- Калькулятор -->
+            <section id="calculator" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Калькулятор сбережений</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Панель ввода данных -->
+                    <div class="lg:col-span-1 bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold mb-6 text-purple-600">Параметры расчета</h3>
+                        
                         <div class="space-y-6">
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">1</div>
-                                <div>
-                                    <p class="font-medium">Клиент заключает договор долгосрочных сбережений с негосударственным пенсионным Фондом (НПФ)</p>
+                            <!-- Пол и возраст -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Пол и возраст</label>
+                                <div class="flex space-x-4 mb-2">
+                                    <button id="gender-male" class="gender-btn flex-1 py-2 px-4 border border-gray-300 rounded-lg" data-gender="male">Мужчина</button>
+                                    <button id="gender-female" class="gender-btn flex-1 py-2 px-4 border border-gray-300 rounded-lg" data-gender="female">Женщина</button>
+                                </div>
+                                <input type="range" id="age" min="18" max="70" value="40" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>18 лет</span>
+                                    <span id="age-value">40 лет</span>
+                                    <span>70 лет</span>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">2</div>
-                                <div>
-                                    <p class="font-medium">Клиент уплачивает первый взнос при оформлении договора и далее самостоятельно, ежегодно перечисляет взносы (от 2000 рублей в год)</p>
+                            
+                            <!-- Доход -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Ежемесячный доход</label>
+                                <input type="range" id="income" min="30000" max="300000" step="10000" value="80000" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>30 000 ₽</span>
+                                    <span id="income-value">80 000 ₽</span>
+                                    <span>300 000 ₽</span>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">3</div>
-                                <div>
-                                    <p class="font-medium">Ежегодно государство производит софинансирование взносов, размер софинансирования до 36 000 рублей в год</p>
+                            
+                            <!-- Взносы -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Первый взнос</label>
+                                <input type="range" id="first-payment" min="30000" max="500000" step="10000" value="30000" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>30 000 ₽</span>
+                                    <span id="first-payment-value">30 000 ₽</span>
+                                    <span>500 000 ₽</span>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">4</div>
-                                <div>
-                                    <p class="font-medium">Ежегодно НПФ начисляет инвестиционный доход на поступившие взносы и софинансирование</p>
+                            
+                            <!-- Дополнительные взносы -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Дополнительные взносы в месяц</label>
+                                <input type="range" id="monthly-payment" min="0" max="50000" step="1000" value="3000" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>0 ₽</span>
+                                    <span id="monthly-payment-value">3 000 ₽</span>
+                                    <span>50 000 ₽</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Период накопления -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Период накопления (лет)</label>
+                                <input type="range" id="saving-period" min="1" max="30" value="15" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>1 год</span>
+                                    <span id="saving-period-value">15 лет</span>
+                                    <span>30 лет</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Инвестиционная ставка -->
+                            <div>
+                                <label class="block text-gray-700 mb-2">Расчетная ставка инвестиционного дохода</label>
+                                <input type="range" id="investment-rate" min="5" max="25" step="0.1" value="19.3" class="w-full">
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>5%</span>
+                                    <span id="investment-rate-value">19.3%</span>
+                                    <span>25%</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Процесс выплат -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 text-purple-600">Тратим</h3>
-                        <div class="space-y-6">
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold mr-4">1</div>
-                                <div>
-                                    <p class="font-medium">Единовременное получение средств после 15 лет действия договора при достижении пенсионного возраста</p>
+                    <!-- Результаты и графики -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-6 text-purple-600">Результаты расчета</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="text-sm text-purple-600">Личные взносы</div>
+                                    <div class="text-2xl font-bold" id="personal-contributions">567 000 ₽</div>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="text-sm text-green-600">Софинансирование</div>
+                                    <div class="text-2xl font-bold" id="state-contributions">360 000 ₽</div>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="text-sm text-blue-600">Инвестиционный доход</div>
+                                    <div class="text-2xl font-bold" id="investment-income">4 444 243 ₽</div>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-4">
+                                    <div class="text-sm text-yellow-600">Налоговый вычет</div>
+                                    <div class="text-2xl font-bold" id="tax-deduction">73 710 ₽</div>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold mr-4">2</div>
-                                <div>
-                                    <p class="font-medium">Получаете периодическую выплату от НПФ: срочную от 5 лет или пожизненную</p>
+                            
+                            <!-- График распределения -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold mb-4">Структура накоплений</h4>
+                                <div class="h-64">
+                                    <canvas id="distribution-chart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <!-- График роста по годам -->
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">Рост накоплений по годам</h4>
+                                <div class="h-64">
+                                    <canvas id="growth-chart"></canvas>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="mt-8 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                            <p class="text-yellow-800 font-medium">Особенность:</p>
-                            <p class="text-yellow-700">Выплата в особых жизненных ситуациях: дорогостоящее лечение и потеря кормильца</p>
+                        <!-- Пояснения к результатам -->
+                        <div class="bg-white rounded-xl shadow-md p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-purple-600">Что вы получаете</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Государственное софинансирование</p>
+                                        <p class="text-gray-600 text-sm">Ежегодно государство добавляет средства к вашим накоплениям</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Инвестиционный доход</p>
+                                        <p class="text-gray-600 text-sm">Ваши средства работают и приносят дополнительный доход</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 text-purple-600 rounded-full p-2 mr-3 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Налоговый вычет</p>
+                                        <p class="text-gray-600 text-sm">Возврат 13% от суммы взносов в пределах 400 тыс. руб. в год</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Параметры программы -->
+            <section id="parameters" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Параметры программы</h2>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-6 border-b md:border-b-0 md:border-r border-gray-200">
+                            <h3 class="text-xl font-semibold mb-4 text-purple-600">Основные условия</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Валюта</span>
+                                    <span class="font-medium">Рубль</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Первый взнос</span>
+                                    <span class="font-medium">30 000 рублей</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Последующие взносы</span>
+                                    <span class="font-medium">От любой суммы, периодичность определяется клиентом</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Максимальная сумма</span>
+                                    <span class="font-medium">Не ограничена</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Рекомендуемый срок</span>
+                                    <span class="font-medium">15 лет</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-purple-600">Дополнительные условия</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Частичный вывод</span>
+                                    <span class="font-medium">Возможен при особых жизненных ситуациях</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Возможность досрочного расторжения</span>
+                                    <span class="font-medium">Да, с учетом коэффициентов выкупных сумм</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Тип налогового вычета</span>
+                                    <span class="font-medium">На долгосрочные сбережения (ст.219.2 НК РФ)</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Комиссии для клиента</span>
+                                    <span class="font-medium">Отсутствуют</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-gray-600">Период охлаждения</span>
+                                    <span class="font-medium">14 календарных дней</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Как работает программа -->
+            <section id="how-it-works" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Как работает программа</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Процесс накопления -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6 text-purple-600">Копим</h3>
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">1</div>
+                                    <div>
+                                        <p class="font-medium">Клиент заключает договор долгосрочных сбережений с негосударственным пенсионным Фондом (НПФ)</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">2</div>
+                                    <div>
+                                        <p class="font-medium">Клиент уплачивает первый взнос при оформлении договора и далее самостоятельно, ежегодно перечисляет взносы (от 2000 рублей в год)</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">3</div>
+                                    <div>
+                                        <p class="font-medium">Ежегодно государство производит софинансирование взносов, размер софинансирования до 36 000 рублей в год</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mr-4">4</div>
+                                    <div>
+                                        <p class="font-medium">Ежегодно НПФ начисляет инвестиционный доход на поступившие взносы и софинансирование</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Процесс выплат -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6 text-purple-600">Тратим</h3>
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold mr-4">1</div>
+                                    <div>
+                                        <p class="font-medium">Единовременное получение средств после 15 лет действия договора при достижении пенсионного возраста</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold mr-4">2</div>
+                                    <div>
+                                        <p class="font-medium">Получаете периодическую выплату от НПФ: срочную от 5 лет или пожизненную</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                <p class="text-yellow-800 font-medium">Особенность:</p>
+                                <p class="text-yellow-700">Выплата в особых жизненных ситуациях: дорогостоящее лечение и потеря кормильца</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Футер -->
@@ -422,59 +795,124 @@
                     <p class="text-lg font-semibold">Программа долгосрочных сбережений</p>
                     <p class="text-gray-400">Надежный способ формирования капитала</p>
                 </div>
-                
             </div>
-            
         </div>
     </footer>
 
     <script>
         // Инициализация элементов управления
         document.addEventListener('DOMContentLoaded', function() {
-            // Инициализация слайдеров
+            // Инициализация слайдеров для десктопа
             const ageSlider = document.getElementById('age');
             const ageValue = document.getElementById('age-value');
-            ageSlider.addEventListener('input', function() {
-                ageValue.textContent = this.value + ' лет';
-                calculateResults();
-            });
+            if (ageSlider) {
+                ageSlider.addEventListener('input', function() {
+                    ageValue.textContent = this.value + ' лет';
+                    calculateResults();
+                });
+            }
 
             const incomeSlider = document.getElementById('income');
             const incomeValue = document.getElementById('income-value');
-            incomeSlider.addEventListener('input', function() {
-                incomeValue.textContent = formatCurrency(this.value) + ' ₽';
-                calculateResults();
-            });
+            if (incomeSlider) {
+                incomeSlider.addEventListener('input', function() {
+                    incomeValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateResults();
+                });
+            }
 
             const firstPaymentSlider = document.getElementById('first-payment');
             const firstPaymentValue = document.getElementById('first-payment-value');
-            firstPaymentSlider.addEventListener('input', function() {
-                firstPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
-                calculateResults();
-            });
+            if (firstPaymentSlider) {
+                firstPaymentSlider.addEventListener('input', function() {
+                    firstPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateResults();
+                });
+            }
 
             const monthlyPaymentSlider = document.getElementById('monthly-payment');
             const monthlyPaymentValue = document.getElementById('monthly-payment-value');
-            monthlyPaymentSlider.addEventListener('input', function() {
-                monthlyPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
-                calculateResults();
-            });
+            if (monthlyPaymentSlider) {
+                monthlyPaymentSlider.addEventListener('input', function() {
+                    monthlyPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateResults();
+                });
+            }
 
             const savingPeriodSlider = document.getElementById('saving-period');
             const savingPeriodValue = document.getElementById('saving-period-value');
-            savingPeriodSlider.addEventListener('input', function() {
-                savingPeriodValue.textContent = this.value + ' лет';
-                calculateResults();
-            });
+            if (savingPeriodSlider) {
+                savingPeriodSlider.addEventListener('input', function() {
+                    savingPeriodValue.textContent = this.value + ' лет';
+                    calculateResults();
+                });
+            }
 
             const investmentRateSlider = document.getElementById('investment-rate');
             const investmentRateValue = document.getElementById('investment-rate-value');
-            investmentRateSlider.addEventListener('input', function() {
-                investmentRateValue.textContent = this.value + '%';
-                calculateResults();
-            });
+            if (investmentRateSlider) {
+                investmentRateSlider.addEventListener('input', function() {
+                    investmentRateValue.textContent = this.value + '%';
+                    calculateResults();
+                });
+            }
 
-            // Инициализация кнопок выбора пола
+            // Инициализация слайдеров для мобильных
+            const mobileAgeSlider = document.getElementById('mobile-age');
+            const mobileAgeValue = document.getElementById('mobile-age-value');
+            if (mobileAgeSlider) {
+                mobileAgeSlider.addEventListener('input', function() {
+                    mobileAgeValue.textContent = this.value + ' лет';
+                    calculateMobileResults();
+                });
+            }
+
+            const mobileIncomeSlider = document.getElementById('mobile-income');
+            const mobileIncomeValue = document.getElementById('mobile-income-value');
+            if (mobileIncomeSlider) {
+                mobileIncomeSlider.addEventListener('input', function() {
+                    mobileIncomeValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateMobileResults();
+                });
+            }
+
+            const mobileFirstPaymentSlider = document.getElementById('mobile-first-payment');
+            const mobileFirstPaymentValue = document.getElementById('mobile-first-payment-value');
+            if (mobileFirstPaymentSlider) {
+                mobileFirstPaymentSlider.addEventListener('input', function() {
+                    mobileFirstPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateMobileResults();
+                });
+            }
+
+            const mobileMonthlyPaymentSlider = document.getElementById('mobile-monthly-payment');
+            const mobileMonthlyPaymentValue = document.getElementById('mobile-monthly-payment-value');
+            if (mobileMonthlyPaymentSlider) {
+                mobileMonthlyPaymentSlider.addEventListener('input', function() {
+                    mobileMonthlyPaymentValue.textContent = formatCurrency(this.value) + ' ₽';
+                    calculateMobileResults();
+                });
+            }
+
+            const mobileSavingPeriodSlider = document.getElementById('mobile-saving-period');
+            const mobileSavingPeriodValue = document.getElementById('mobile-saving-period-value');
+            if (mobileSavingPeriodSlider) {
+                mobileSavingPeriodSlider.addEventListener('input', function() {
+                    mobileSavingPeriodValue.textContent = this.value + ' лет';
+                    calculateMobileResults();
+                });
+            }
+
+            const mobileInvestmentRateSlider = document.getElementById('mobile-investment-rate');
+            const mobileInvestmentRateValue = document.getElementById('mobile-investment-rate-value');
+            if (mobileInvestmentRateSlider) {
+                mobileInvestmentRateSlider.addEventListener('input', function() {
+                    mobileInvestmentRateValue.textContent = this.value + '%';
+                    calculateMobileResults();
+                });
+            }
+
+            // Инициализация кнопок выбора пола для десктопа
             const genderButtons = document.querySelectorAll('.gender-btn');
             genderButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -488,14 +926,66 @@
                 });
             });
 
+            // Инициализация кнопок выбора пола для мобильных
+            const mobileGenderButtons = document.querySelectorAll('#mobile-gender-male, #mobile-gender-female');
+            mobileGenderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    mobileGenderButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('border', 'border-gray-300');
+                    });
+                    this.classList.remove('border', 'border-gray-300');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    calculateMobileResults();
+                });
+            });
+
+            // Инициализация кнопки расчета для мобильных
+            const mobileCalculateBtn = document.getElementById('mobile-calculate-btn');
+            if (mobileCalculateBtn) {
+                mobileCalculateBtn.addEventListener('click', calculateMobileResults);
+            }
+
+            // Инициализация навигации для мобильных
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tab = this.getAttribute('data-tab');
+                    
+                    // Убираем активный класс у всех элементов
+                    mobileNavItems.forEach(navItem => {
+                        navItem.classList.remove('active');
+                    });
+                    
+                    // Добавляем активный класс текущему элементу
+                    this.classList.add('active');
+                    
+                    // Скрываем все вкладки
+                    const tabs = document.querySelectorAll('.mobile-tab');
+                    tabs.forEach(tabElement => {
+                        tabElement.classList.remove('active');
+                    });
+                    
+                    // Показываем выбранную вкладку
+                    document.getElementById(tab).classList.add('active');
+                });
+            });
+
             // Установим начальное состояние для мужчины
-            document.getElementById('gender-male').click();
+            const maleButton = document.getElementById('gender-male');
+            if (maleButton) maleButton.click();
+            
+            const mobileMaleButton = document.getElementById('mobile-gender-male');
+            if (mobileMaleButton) mobileMaleButton.click();
 
             // Инициализация графиков
             initCharts();
+            initMobileCharts();
             
             // Первоначальный расчет
             calculateResults();
+            calculateMobileResults();
         });
 
         // Форматирование валюты
@@ -503,70 +993,141 @@
             return new Intl.NumberFormat('ru-RU').format(value);
         }
 
-        // Инициализация графиков
+        // Инициализация графиков для десктопа
         let distributionChart, growthChart;
 
         function initCharts() {
-            const distributionCtx = document.getElementById('distribution-chart').getContext('2d');
-            distributionChart = new Chart(distributionCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Личные взносы', 'Софинансирование', 'Инвестиционный доход'],
-                    datasets: [{
-                        data: [567000, 360000, 4444243],
-                        backgroundColor: [
-                            'rgba(124, 58, 237, 0.8)',
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(59, 130, 246, 0.8)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
+            const distributionCtx = document.getElementById('distribution-chart');
+            if (distributionCtx) {
+                distributionChart = new Chart(distributionCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Личные взносы', 'Софинансирование', 'Инвестиционный доход'],
+                        datasets: [{
+                            data: [567000, 360000, 4444243],
+                            backgroundColor: [
+                                'rgba(124, 58, 237, 0.8)',
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(59, 130, 246, 0.8)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
 
-            const growthCtx = document.getElementById('growth-chart').getContext('2d');
-            growthChart = new Chart(growthCtx, {
-                type: 'line',
-                data: {
-                    labels: ['1 год', '3 года', '5 лет', '10 лет', '15 лет'],
-                    datasets: [{
-                        label: 'Накопления',
-                        data: [150000, 450000, 900000, 2500000, 5371243],
-                        borderColor: 'rgba(124, 58, 237, 1)',
-                        backgroundColor: 'rgba(124, 58, 237, 0.1)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return value >= 1000000 ? (value/1000000).toFixed(1) + ' млн' : 
-                                           value >= 1000 ? (value/1000).toFixed(0) + ' тыс' : value;
+            const growthCtx = document.getElementById('growth-chart');
+            if (growthCtx) {
+                growthChart = new Chart(growthCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['1 год', '3 года', '5 лет', '10 лет', '15 лет'],
+                        datasets: [{
+                            label: 'Накопления',
+                            data: [150000, 450000, 900000, 2500000, 5371243],
+                            borderColor: 'rgba(124, 58, 237, 1)',
+                            backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value >= 1000000 ? (value/1000000).toFixed(1) + ' млн' : 
+                                               value >= 1000 ? (value/1000).toFixed(0) + ' тыс' : value;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
         }
 
-        // Расчет результатов
+        // Инициализация графиков для мобильных
+        let mobileDistributionChart, mobileGrowthChart;
+
+        function initMobileCharts() {
+            const mobileDistributionCtx = document.getElementById('mobile-distribution-chart');
+            if (mobileDistributionCtx) {
+                mobileDistributionChart = new Chart(mobileDistributionCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Личные взносы', 'Софинансирование', 'Инвестиционный доход'],
+                        datasets: [{
+                            data: [567000, 360000, 4444243],
+                            backgroundColor: [
+                                'rgba(124, 58, 237, 0.8)',
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(59, 130, 246, 0.8)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }
+                });
+            }
+
+            const mobileGrowthCtx = document.getElementById('mobile-growth-chart');
+            if (mobileGrowthCtx) {
+                mobileGrowthChart = new Chart(mobileGrowthCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['1 год', '3 года', '5 лет', '10 лет', '15 лет'],
+                        datasets: [{
+                            label: 'Накопления',
+                            data: [150000, 450000, 900000, 2500000, 5371243],
+                            borderColor: 'rgba(124, 58, 237, 1)',
+                            backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value >= 1000000 ? (value/1000000).toFixed(1) + ' млн' : 
+                                               value >= 1000 ? (value/1000).toFixed(0) + ' тыс' : value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Расчет результатов для десктопа
         function calculateResults() {
             // Получаем значения из слайдеров
             const age = parseInt(document.getElementById('age').value);
@@ -613,42 +1174,135 @@
             updateCharts(personalContributions, stateContributions, investmentIncome, savingPeriod);
         }
 
-        // Обновление графиков
+        // Расчет результатов для мобильных
+        function calculateMobileResults() {
+            // Получаем значения из слайдеров
+            const age = parseInt(document.getElementById('mobile-age').value);
+            const income = parseInt(document.getElementById('mobile-income').value);
+            const firstPayment = parseInt(document.getElementById('mobile-first-payment').value);
+            const monthlyPayment = parseInt(document.getElementById('mobile-monthly-payment').value);
+            const savingPeriod = parseInt(document.getElementById('mobile-saving-period').value);
+            const investmentRate = parseFloat(document.getElementById('mobile-investment-rate').value) / 100;
+            
+            // Базовый расчет (упрощенный)
+            const personalContributions = firstPayment + (monthlyPayment * 12 * savingPeriod);
+            
+            // Софинансирование от государства (упрощенная модель)
+            let stateContributions = 0;
+            if (monthlyPayment >= 2000) {
+                // Предположим, что государство добавляет до 36 000 в год, но не более 100% от взносов
+                const annualStateContribution = Math.min(36000, monthlyPayment * 12);
+                stateContributions = annualStateContribution * savingPeriod;
+            }
+            
+            // Инвестиционный доход (упрощенный расчет со сложным процентом)
+            let totalInvestment = firstPayment;
+            for (let i = 0; i < savingPeriod; i++) {
+                totalInvestment += monthlyPayment * 12; // личные взносы за год
+                totalInvestment += stateContributions / savingPeriod; // государственные взносы за год
+                totalInvestment *= (1 + investmentRate); // инвестиционный доход
+            }
+            
+            const investmentIncome = totalInvestment - personalContributions - stateContributions;
+            
+            // Налоговый вычет (13% от личных взносов, но не более 52 000 в год)
+            const maxAnnualDeduction = 52000;
+            const annualPersonal = monthlyPayment * 12;
+            const annualDeduction = Math.min(annualPersonal * 0.13, maxAnnualDeduction);
+            const taxDeduction = annualDeduction * savingPeriod;
+            
+            // Обновляем отображение результатов
+            document.getElementById('mobile-personal-contributions').textContent = formatCurrency(Math.round(personalContributions)) + ' ₽';
+            document.getElementById('mobile-state-contributions').textContent = formatCurrency(Math.round(stateContributions)) + ' ₽';
+            document.getElementById('mobile-investment-income').textContent = formatCurrency(Math.round(investmentIncome)) + ' ₽';
+            document.getElementById('mobile-tax-deduction').textContent = formatCurrency(Math.round(taxDeduction)) + ' ₽';
+            
+            // Обновляем графики
+            updateMobileCharts(personalContributions, stateContributions, investmentIncome, savingPeriod);
+        }
+
+        // Обновление графиков для десктопа
         function updateCharts(personal, state, investment, period) {
             // Обновляем круговую диаграмму
-            distributionChart.data.datasets[0].data = [personal, state, investment];
-            distributionChart.update();
+            if (distributionChart) {
+                distributionChart.data.datasets[0].data = [personal, state, investment];
+                distributionChart.update();
+            }
             
             // Обновляем линейный график (упрощенная модель роста)
-            const years = Math.min(period, 15);
-            const growthData = [];
-            let currentAmount = parseInt(document.getElementById('first-payment').value);
-            const monthly = parseInt(document.getElementById('monthly-payment').value);
-            const annualState = state / period;
-            const rate = parseFloat(document.getElementById('investment-rate').value) / 100;
-            
-            for (let i = 1; i <= years; i++) {
-                if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
-                    growthData.push(Math.round(currentAmount));
+            if (growthChart) {
+                const years = Math.min(period, 15);
+                const growthData = [];
+                let currentAmount = parseInt(document.getElementById('first-payment').value);
+                const monthly = parseInt(document.getElementById('monthly-payment').value);
+                const annualState = state / period;
+                const rate = parseFloat(document.getElementById('investment-rate').value) / 100;
+                
+                for (let i = 1; i <= years; i++) {
+                    if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
+                        growthData.push(Math.round(currentAmount));
+                    }
+                    
+                    // Упрощенный расчет на каждый год
+                    currentAmount += monthly * 12;
+                    currentAmount += annualState;
+                    currentAmount *= (1 + rate);
                 }
                 
-                // Упрощенный расчет на каждый год
-                currentAmount += monthly * 12;
-                currentAmount += annualState;
-                currentAmount *= (1 + rate);
-            }
-            
-            // Обновляем метки и данные графика роста
-            const labels = [];
-            for (let i = 1; i <= years; i++) {
-                if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
-                    labels.push(i + ' год');
+                // Обновляем метки и данные графика роста
+                const labels = [];
+                for (let i = 1; i <= years; i++) {
+                    if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
+                        labels.push(i + ' год');
+                    }
                 }
+                
+                growthChart.data.labels = labels;
+                growthChart.data.datasets[0].data = growthData;
+                growthChart.update();
+            }
+        }
+
+        // Обновление графиков для мобильных
+        function updateMobileCharts(personal, state, investment, period) {
+            // Обновляем круговую диаграмму
+            if (mobileDistributionChart) {
+                mobileDistributionChart.data.datasets[0].data = [personal, state, investment];
+                mobileDistributionChart.update();
             }
             
-            growthChart.data.labels = labels;
-            growthChart.data.datasets[0].data = growthData;
-            growthChart.update();
+            // Обновляем линейный график (упрощенная модель роста)
+            if (mobileGrowthChart) {
+                const years = Math.min(period, 15);
+                const growthData = [];
+                let currentAmount = parseInt(document.getElementById('mobile-first-payment').value);
+                const monthly = parseInt(document.getElementById('mobile-monthly-payment').value);
+                const annualState = state / period;
+                const rate = parseFloat(document.getElementById('mobile-investment-rate').value) / 100;
+                
+                for (let i = 1; i <= years; i++) {
+                    if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
+                        growthData.push(Math.round(currentAmount));
+                    }
+                    
+                    // Упрощенный расчет на каждый год
+                    currentAmount += monthly * 12;
+                    currentAmount += annualState;
+                    currentAmount *= (1 + rate);
+                }
+                
+                // Обновляем метки и данные графика роста
+                const labels = [];
+                for (let i = 1; i <= years; i++) {
+                    if (i <= 5 && i % 1 === 0 || i === 10 || i === 15) {
+                        labels.push(i + ' год');
+                    }
+                }
+                
+                mobileGrowthChart.data.labels = labels;
+                mobileGrowthChart.data.datasets[0].data = growthData;
+                mobileGrowthChart.update();
+            }
         }
     </script>
 </body>
